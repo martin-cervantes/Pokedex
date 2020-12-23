@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import icon from './assets/pokeball.png';
 
+import './assets/style/reset.scss';
+
 ReactDOM.render(
   <h1>
     Hello World
