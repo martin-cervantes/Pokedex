@@ -1,10 +1,12 @@
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 
-const getData = async (num) => {
+const getPokemon = async (num) => {
   try {
     const response = await fetch(`${url}${num}`, { mode: 'cors' });
 
     const data = await response.json();
+
+    pokemons.push(data);
 
     return data;
   } catch (error) {
@@ -35,5 +37,9 @@ const types = [
 ];
 
 const pokemons = [];
+
+for (let i = 1; i <= 151; i++) {
+	getPokemon(i);
+}
 
 export { pokemons, types };
