@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 
 import icon from './assets/pokeball.png';
 
 import './assets/style/reset.scss';
 
 ReactDOM.render(
-  <h1>
-    Hello World
-  </h1>,
-  document.getElementById('root')
+  <Provider store={store}>
+    <h1>Hello Wolrd</h1>
+  </Provider>,
+  document.getElementById('root'),
 );
 
 
