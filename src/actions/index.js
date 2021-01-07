@@ -8,9 +8,9 @@ export const addPokemon = (pokemon) => {
   };
 }
 
-export const changeFilter = (type) => {
+export const changeFilter = (pokemon_type) => {
   return {
     type: CHANGE_FILTER,
-    type,
+    pokemon_type,
   };
 }
