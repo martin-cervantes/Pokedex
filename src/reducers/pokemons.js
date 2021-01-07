@@ -1,4 +1,4 @@
-import ADD_POKEMON from '../actions';
+import { ADD_POKEMON } from '../actions';
 import { pokemons } from '../store/init';
 
 const pokemonsReducer = (state = pokemons, action) => {
