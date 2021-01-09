@@ -12,14 +12,12 @@ const pokemonsReducer = (state = pokemons, action) => {
           weight: action.pokemon.weight,
           height: action.pokemon.height,
           stats: action.pokemon.stats,
-          abilities: action.pokemon.abilities,
-          moves: action.pokemon.moves,
           sprites: action.pokemon.sprites,
         },
       ];
     default:
       return state;
   }
-}
+};
 
 export default pokemonsReducer;
