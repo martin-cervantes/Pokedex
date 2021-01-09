@@ -1,12 +1,22 @@
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 
+const pokemons = [];
+
 const getPokemon = async (num) => {
   try {
     const response = await fetch(`${url}${num}`, { mode: 'cors' });
 
     const data = await response.json();
 
-    pokemons.push(data);
+    pokemons.push({
+      id: data.id,
+      name: data.name,
+      types: data.types,
+      weight: data.weight,
+      height: data.height,
+      stats: data.stats,
+      sprites: data.sprites.other.dream_world.front_default,
+    });
 
     return data;
   } catch (error) {
@@ -33,13 +43,11 @@ const types = [
   'Psychic',
   'Rock',
   'Steel',
-  'Water'
+  'Water',
 ];
 
-const pokemons = [];
-
-for (let i = 1; i <= 151; i++) {
-	getPokemon(i);
+for (let i = 1; i <= 151; i += 1) {
+  getPokemon(i);
 }
 
 export { pokemons, types };
