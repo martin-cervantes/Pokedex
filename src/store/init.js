@@ -11,11 +11,13 @@ const getPokemon = async (num) => {
     pokemons.push({
       id: data.id,
       name: data.name,
-      types: data.types,
+      types: data.types.map(t => (t.type.name)),
       weight: data.weight,
       height: data.height,
-      stats: data.stats,
-      sprites: data.sprites.other.dream_world.front_default,
+      stats: data.stats.map(s => ({ name: s.stat.name, base: s.base_stat })),
+      abilities: data.abilities.map(a => a.ability.name),
+      moves: data.moves.map(m => m.move.name),
+      sprite: data.sprites.other.dream_world.front_default,
     });
 
     return data;
@@ -46,7 +48,7 @@ const types = [
   'Water',
 ];
 
-for (let i = 1; i <= 151; i += 1) {
+for (let i = 1; i <= 3; i += 1) {
   getPokemon(i);
 }
 
