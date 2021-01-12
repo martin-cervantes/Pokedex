@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 const Pokemon = ({ data }) => {
@@ -9,18 +8,22 @@ const Pokemon = ({ data }) => {
     weight,
     height,
     stats,
-    sprites,
+    abilities,
+    moves,
+    sprite,
   } = data;
 
   return (
     <div className="pokemon_container">
-      {id}
-      {name}
-      {types}
-      {weight}
-      {height}
-      {stats}
-      {sprites}
+      <div>id: {id}</div>
+      <div>name: {name}</div>
+      <div>types: { types.map(t => t) } </div>
+      <div>weight: {weight}</div>
+      <div>height: {height}</div>
+      { stats.map(s => (<div>{ s.name }: { s.base }</div>)) }
+      <div>abilities: { abilities.map(a => a) } </div>
+      <div>moves: { moves.map(m => m) }</div>
+      <img src={sprite} alt={name} />
     </div>
   );
 };
@@ -29,24 +32,13 @@ Pokemon.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    types: PropTypes.arrayOf(
-      PropTypes.shape({
-        slot: PropTypes.number.isRequired,
-        name: PropTypes.exact({
-          name: PropTypes.string,
-          url: PropTypes.string,
-        }),
-      }),
-    ),
+    types: PropTypes.arrayOf(PropTypes.string).isRequired,
     weight: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
-    stats: PropTypes.arrayOf(
-      PropTypes.shape({
-        base_stat: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-      }),
-    ),
-    sprites: PropTypes.string.isRequired,
+    stats: PropTypes.arrayOf(PropTypes.object).isRequired,
+    abilities: PropTypes.arrayOf(PropTypes.string).isRequired,
+    moves: PropTypes.arrayOf(PropTypes.string).isRequired,
+    sprite: PropTypes.string.isRequired,
   }).isRequired,
 };
 
