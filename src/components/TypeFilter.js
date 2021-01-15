@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { types } from '../store/init';
+import types from '../store/init';
 
 const TypeFilter = ({ handleFilterChange }) => (
   <div>
