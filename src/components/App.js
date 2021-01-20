@@ -11,7 +11,7 @@ const url = 'https://pokeapi.co/api/v2/pokemon/';
 
 const App = props => {
   useEffect(() => {
-    for (let num = 1; num <= 10; num += 1) {
+    for (let num = 1; num <= 151; num += 1) {
       props.fetchData(`${url}${num}`);
     }
   });
@@ -25,6 +25,10 @@ const App = props => {
           <Route path="/" exact component={PokemonsList} />
           <Route path="/pokemon/:id" component={Details} />
         </Switch>
+
+        <footer>
+           <p id='credits_text'>Copyleft <span id='copyleft'>&copy;</span> 2021 Martin Cervantes</p>
+        </footer>
       </div>
     </Router>
   );
