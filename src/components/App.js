@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from '../containers/Header';
 import PokemonsList from '../containers/PokemonsList';
+import Details from './Details';
 import { fetchData } from '../actions';
 
 const url = 'https://pokeapi.co/api/v2/pokemon/';
@@ -15,10 +17,16 @@ const App = props => {
   });
 
   return (
-    <div>
-      <Header />
-      <PokemonsList />
-    </div>
+    <Router>
+      <div>
+        <Header />
+
+        <Switch>
+          <Route path="/" exact component={PokemonsList} />
+          <Route path="/pokemon/:id" component={Details} />
+        </Switch>
+      </div>
+    </Router>
   );
 };
 

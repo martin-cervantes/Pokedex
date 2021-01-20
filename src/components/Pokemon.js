@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Pokemon = ({ data }) => {
@@ -24,6 +25,7 @@ const Pokemon = ({ data }) => {
       <div>abilities: { abilities.map(a => a) } </div>
       <div>moves: { moves.map(m => m) }</div>
       <img src={sprite} alt={name} />
+      <Link className="button" to={`/pokemon/${id}`}>Details</Link>
     </div>
   );
 };
