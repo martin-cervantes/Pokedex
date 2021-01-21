@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# Pokedex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is about creating a SPA based on a Pokedex for pokemon. It doesn't build any payments or user authentication. It just a catalog, that is, a browsable list of pokemon that you can filter and access to the details of one of them. It is a single page application built with React and Redux that retrieves data from the API to be stored in the Redux store.
 
-## Available Scripts
+![screenshot](./Screenshot.png)
 
-In the project directory, you can run:
+## :package: Built With
 
-### `yarn start`
+- HTML and JSX
+- CSS
+- Javascript (ES6)
+- React
+- Redux
+- npm
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## :mag: Live Demo
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[Live Demo Link](https://pokedex-react-project1.netlify.app/)
 
-### `yarn test`
+## :computer: Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get a local copy up and running follow these simple steps.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Download
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1) Clone the repository to your local machine
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+  $ git clone https://github.com/mcervantes71/Pokedex.git
+```
 
-### `yarn eject`
+2) cd into the directory
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+  $ cd Pokedex
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Requirements
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Usage
 
-## Learn More
+```sh
+  $ npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Build project and open web server running project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+  $ npm start
+```
 
-### Code Splitting
+Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The page will reload if you make edits.You will also see any lint errors in the console.
 
-### Analyzing the Bundle Size
+```sh
+  $ npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Making a Progressive Web App
+The build is minified and the filenames include the hashes. Your app is ready to be deployed!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```sh
+  $ npm test
+```
 
-### Advanced Configuration
+Launches the test runner in the interactive watch mode.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## :busts_in_silhouette: Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+👤 **Martin Cervantes**
 
-### `yarn build` fails to minify
+- Linkedin: [Martin Cervantes](https://www.linkedin.com/in/cervantesmartin/)
+- Twitter: [@M4rt1nC3rv4nt3s](https://twitter.com/M4rt1nC3rv4nt3s)
+- Github: [@mcervantes71](https://github.com/mcervantes71)
+- Gmail: [cervantes.martine](mailto:cervantes.martine@gmail.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🤝 Contributing
+
+    Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues).
+
+## :star2: Show your support
+
+    Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
