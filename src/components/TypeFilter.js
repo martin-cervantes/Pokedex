@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import types from '../store/init';
 
 const TypeFilter = ({ handleFilterChange }) => (
-  <div>
+  <div id="filter_container">
     <select className="filter" name="filter" onChange={e => handleFilterChange(e)}>
       <option value="All" key="All">All</option>
       {types.map(type => (

@@ -16,7 +16,7 @@ export const fetchData = url => dispatch => {
     .then(response => response.json())
     .then(data => dispatch(addPokemon({
       id: data.id,
-      name: data.name,
+      name: data.name.charAt(0).toUpperCase() + data.name.slice(1),
       types: data.types.map(t => {
         const { name } = t.type;
         return name.charAt(0).toUpperCase() + name.slice(1);
