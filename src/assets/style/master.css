@@ -47,6 +47,9 @@ header {
   background-color: silver;
   border: solid 1px black;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 2rem 0 1rem;
   position: relative;
   margin-bottom: 2rem;
@@ -63,19 +66,8 @@ header {
   font-family: 'Roboto', sans-serif;
   font-size: 2.5rem;
   font-weight: 900;
-  padding: 0.5rem 0 0;
+  padding-top: 0.5rem;
   text-align: center;
-}
-
-.pokemon_link {
-  color: black;
-  padding: 0.5rem;
-}
-
-.pokemon_link:hover {
-  background-color: white;
-  color: blue;
-  text-decoration: none;
 }
 
 .pokemon_num {
@@ -98,6 +90,9 @@ header {
   border: solid 0.2rem teal;
   border-radius: 1rem;
   column-gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0.5rem;
   min-height: calc(100vh - 20rem);
   padding: 2rem 3rem;
@@ -187,18 +182,23 @@ li {
   padding: 0.5rem;
 }
 
-.button_link {
-  background-color: rgb(18, 99, 238);
-  border: 1px solid black;
+button {
+  background-color: silver;
+  border: 1px solid silver;
   color: black;
-  padding: 0.2rem 2rem;
-  text-decoration: none;
 }
 
-.button_link:hover {
-  color: blue;
+button:hover {
+  background-color: white;
+  color: #0f62f0;
   border: 1px solid white;
-  text-decoration: none;
+}
+
+.back {
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 auto;
+  width: 15rem;
 }
 
 /* types */

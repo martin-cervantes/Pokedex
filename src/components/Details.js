@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-const Details = ({ match, pokemons }) => {
+const Details = ({ match, pokemons, history }) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const Details = ({ match, pokemons }) => {
         </ul>
       </div>
 
-      <div className="button"><Link to='/' className="button_link" href="">Back</Link></div>
+      <button className="back" onClick={history.goBack} href="">Back</button>
     </div>
   );
 };
