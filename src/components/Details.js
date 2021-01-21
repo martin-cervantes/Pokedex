@@ -50,11 +50,11 @@ const Details = ({ match, pokemons, history }) => {
 
           <div className="group">
             <div className="left type">
-              { types.map(t => <div className={`${t} capsule`}>{t}</div>) }
+              { types.map(t => <div key={t} className={`${t} capsule`}>{t}</div>) }
             </div>
             <p className="left">{weight}</p>
             <p className="left">{height}</p>
-            { stats.map(s => <div className="progressbar"><div style={{ width: s.base }}></div></div>) }
+            { stats.map(s => <div key={s} className="progressbar"><div style={{ width: s.base }} /></div>) }
           </div>
         </div>
       </div>
@@ -62,25 +62,26 @@ const Details = ({ match, pokemons, history }) => {
       <div className="section2">
         <strong className="underline">Abilities:</strong>
         <ul>
-          { abilities.map(a => <li>{a}</li>) }
+          { abilities.map(a => <li key={a}>{a}</li>) }
         </ul>
       </div>
 
       <div className="section2">
         <strong className="underline">Moves:</strong>
         <ul>
-          { moves.map(m => <li>{m}</li>) }
+          { moves.map(m => <li key={m}>{m}</li>) }
         </ul>
       </div>
 
-      <button className="back" onClick={history.goBack} href="">Back</button>
+      <button type="button" className="back" onClick={history.goBack} href="">Back</button>
     </div>
   );
 };
 
 Details.propTypes = {
-  match: PropTypes.object.isRequired,
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
   pokemons: PropTypes.arrayOf(PropTypes.object).isRequired,
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 const mapStateToProps = state => ({

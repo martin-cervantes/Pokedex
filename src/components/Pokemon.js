@@ -14,7 +14,7 @@ const Pokemon = ({ data }) => {
     <div className="pokemon_container">
       <img className="pokemon_img" src={sprite} alt={name} />
 
-      <button className="pokemon_name" onClick={() => history.push(`/pokemon/${id}`)}>
+      <button type="button" className="pokemon_name" onClick={() => history.push(`/pokemon/${id}`)}>
         {name}
       </button>
 

@@ -27,7 +27,13 @@ const App = props => {
         </Switch>
 
         <footer>
-           <p id='credits_text'>Copyleft <span id='copyleft'>&copy;</span> 2021 Martin Cervantes</p>
+          <p id="credits_text">
+            Copyleft
+            <span id="copyleft">
+              &copy;
+            </span>
+            2021 Martin Cervantes
+          </p>
         </footer>
       </div>
     </Router>

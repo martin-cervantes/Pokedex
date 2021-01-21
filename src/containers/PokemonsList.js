@@ -48,6 +48,7 @@ class PokemonsList extends React.Component {
 PokemonsList.propTypes = {
   pokemons: PropTypes.arrayOf(PropTypes.object).isRequired,
   filter: PropTypes.string.isRequired,
+  changeFilter: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
