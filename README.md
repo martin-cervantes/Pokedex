@@ -4,6 +4,8 @@ This project is about creating a SPA based on a Pokedex for pokemon. It doesn't 
 
 ![screenshot](./Screenshot.png)
 
+![screenshot](./Screenshot1.png)
+
 ## :package: Built With
 
 - HTML and JSX
