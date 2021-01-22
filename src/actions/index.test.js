@@ -1,7 +1,6 @@
-import ADD_POKEMON from "./index.js";
-import CHANGE_FILTER from "./index.js";
-import addPokemon from "./index.js";
-import changeFilter from "./index.js";
+import {
+  ADD_POKEMON, CHANGE_FILTER, addPokemon, changeFilter,
+} from './index';
 
 describe('Testing actions', () => {
   it('Should create an action to add a pokemon', () => {
@@ -9,7 +8,7 @@ describe('Testing actions', () => {
     const expectedAction = {
       type: ADD_POKEMON,
       pokemon,
-    }
+    };
     expect(addPokemon(pokemon)).toEqual(expectedAction);
   });
 
@@ -18,7 +17,7 @@ describe('Testing actions', () => {
     const expectedAction = {
       type: CHANGE_FILTER,
       pokemonType,
-    }
+    };
     expect(changeFilter(pokemonType)).toEqual(expectedAction);
   });
 });
