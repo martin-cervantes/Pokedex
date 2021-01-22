@@ -1,49 +1,36 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TypeFilter from '../components/TypeFilter';
 import Pokemon from '../components/Pokemon';
 import { changeFilter } from '../actions';
 
-class PokemonsList extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.handleFilterChange = this.handleFilterChange.bind(this);
-  }
-
-  handleFilterChange(event) {
+const PokemonsList = ({ pokemons, filter, changeFilter }) => {
+  const handleFilterChange = event => {
     event.preventDefault();
 
-    const { changeFilter } = this.props;
-
     changeFilter(event.target.value);
-  }
+  };
 
-  render() {
-    const { pokemons, filter } = this.props;
-
-    return (
-      <div id="pokemons">
-        <TypeFilter handleFilterChange={this.handleFilterChange} />
-        {
-          pokemons
-            .sort((a, b) => {
-              if (a.id > b.id) {
-                return 1;
-              }
-              if (a.id < b.id) {
-                return -1;
-              }
-              return 0;
-            })
-            .filter(pokemon => (filter === 'All' ? true : pokemon.types.some(type => type === filter)))
-            .map(pokemon => <Pokemon key={pokemon.id} data={pokemon} />)
-        }
-      </div>
-    );
-  }
-}
+  return (
+    <div id="pokemons">
+      <TypeFilter handleFilterChange={handleFilterChange} />
+      {
+        pokemons
+          .sort((a, b) => {
+            if (a.id > b.id) {
+              return 1;
+            }
+            if (a.id < b.id) {
+              return -1;
+            }
+            return 0;
+          })
+          .filter(pokemon => (filter === 'All' ? true : pokemon.types.some(type => type === filter)))
+          .map(pokemon => <Pokemon key={pokemon.id} data={pokemon} />)
+      }
+    </div>
+  );
+};
 
 PokemonsList.propTypes = {
   pokemons: PropTypes.arrayOf(PropTypes.object).isRequired,
