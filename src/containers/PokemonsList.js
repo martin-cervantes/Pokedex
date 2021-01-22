@@ -13,7 +13,7 @@ const PokemonsList = ({ pokemons, filter, changeFilter }) => {
 
   return (
     <div id="pokemons">
-      <TypeFilter handleFilterChange={handleFilterChange} />
+      <TypeFilter value={filter} handleFilterChange={handleFilterChange} />
       {
         pokemons
           .sort((a, b) => {
