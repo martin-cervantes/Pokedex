@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import TypeFilter from '../components/TypeFilter';
 import Pokemon from '../components/Pokemon';
 import { changeFilter } from '../actions';
@@ -26,7 +27,7 @@ const PokemonsList = ({ pokemons, filter, changeFilter }) => {
             return 0;
           })
           .filter(pokemon => (filter === 'All' ? true : pokemon.types.some(type => type === filter)))
-          .map(pokemon => <Pokemon key={pokemon.id} data={pokemon} />)
+          .map(pokemon => <Pokemon key={uuidv4()} data={pokemon} />)
       }
     </div>
   );
