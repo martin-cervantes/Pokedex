@@ -74,7 +74,7 @@ const Details = ({ match, pokemons, history }) => {
         </ul>
       </div>
 
-      <button type="button" className="back" onClick={history.goBack} href="">Back</button>
+      <button type="button" className="back" onClick={history.goBack}>Back</button>
     </div>
   );
 };
