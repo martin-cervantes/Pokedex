@@ -1,6 +1,6 @@
 # Pokedex
 
-This project is about creating a SPA based on a Pokedex for pokemon. It doesn't build any payments or user authentication. It just a catalog, that is, a browsable list of pokemon that you can filter and access to the details of one of them. It is a single page application built with React and Redux that retrieves data from the API to be stored in the Redux store.
+This project is about creating a SPA based on a Pokedex for Pokemon. It a catalog, that is, a browsable list of Pokemon that you can filter by type and access to the details of each one. It retrieves data from the API to be stored in the Redux store.
 
 ![screenshot](./Screenshot.png)
 
