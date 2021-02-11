@@ -7,14 +7,8 @@ import PokemonsList from '../containers/PokemonsList';
 import Details from './Details';
 import { fetchData } from '../actions';
 
-const url = 'https://pokeapi.co/api/v2/pokemon/';
-
-const App = props => {
-  useEffect(() => {
-    for (let num = 1; num <= 151; num += 1) {
-      props.fetchData(`${url}${num}`);
-    }
-  });
+const App = ({ fetchData }) => {
+  useEffect(() => fetchData(50));
 
   return (
     <Router>
@@ -41,7 +35,7 @@ const App = props => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: url => dispatch(fetchData(url)),
+  fetchData: count => dispatch(fetchData(count)),
 });
 
 App.propTypes = {

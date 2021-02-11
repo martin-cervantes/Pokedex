@@ -1,9 +1,9 @@
-export const ADD_POKEMON = 'ADD_POKEMON';
+export const ADD_POKEMONS = 'ADD_POKEMONS';
 export const CHANGE_FILTER = 'CHANGE_FILTER';
 
-export const addPokemon = pokemon => ({
-  type: ADD_POKEMON,
-  pokemon,
+export const addPokemons = pokemons => ({
+  type: ADD_POKEMONS,
+  pokemons,
 });
 
 export const changeFilter = pokemonType => ({
@@ -11,21 +11,10 @@ export const changeFilter = pokemonType => ({
   pokemonType,
 });
 
-export const fetchData = url => dispatch => {
-  fetch(url)
+export const fetchData = count => dispatch => {
+  const url = 'https://pokemons-api-project.herokuapp.com/pokemons/';
+
+  fetch(`${url}${count}`)
     .then(response => response.json())
-    .then(data => dispatch(addPokemon({
-      id: data.id,
-      name: data.name.charAt(0).toUpperCase() + data.name.slice(1),
-      types: data.types.map(t => {
-        const { name } = t.type;
-        return name.charAt(0).toUpperCase() + name.slice(1);
-      }),
-      weight: data.weight,
-      height: data.height,
-      stats: data.stats.map(s => ({ name: s.stat.name, base: s.base_stat })),
-      abilities: data.abilities.map(a => a.ability.name),
-      moves: data.moves.map(m => m.move.name),
-      sprite: data.sprites.other.dream_world.front_default,
-    })));
+    .then(data => dispatch(addPokemons(data)));
 };

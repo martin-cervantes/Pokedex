@@ -1,9 +1,9 @@
-import { ADD_POKEMON } from '../actions';
+import { ADD_POKEMONS } from '../actions';
 
 const pokemonsReducer = (state = [], action) => {
   switch (action.type) {
-    case ADD_POKEMON:
-      return [...state, action.pokemon];
+    case ADD_POKEMONS:
+      return [...state, ...action.pokemons];
     default:
       return state;
   }
