@@ -23,6 +23,7 @@ header {
 
 #pokemons {
   background-color: green;
+  border-radius: 1rem;
   column-gap: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
