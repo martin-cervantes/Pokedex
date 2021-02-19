@@ -23,22 +23,46 @@ header {
 
 #pokemons {
   background-color: green;
-  border: solid 0.2rem teal;
-  border-radius: 1rem;
   column-gap: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
+  min-height: calc(100vh - 20rem);
+  padding: 2rem 3rem 0;
+}
+
+#more {
+  background-color: green;
+  border: solid 0.2rem teal;
+  border-radius: 1rem;
   margin: 0.5rem;
   min-height: calc(100vh - 20rem);
-  padding: 2rem 3rem;
-  width: 91%;
+  padding: 0;
+  width: 98%;
 }
 
 #filter_container {
   left: 1.5rem;
   position: absolute;
   top: 10vw;
+}
+
+#add_more_button {
+  border-radius: 1rem 0;
+  cursor: pointer;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  height: 5rem;
+  margin: 1.5rem auto;
+  padding: 0.5rem 3rem 0;
+  text-align: center;
+}
+
+#add_more_button:hover {
+  border-radius: 0 1rem;
+  text-decoration: underline teal;
 }
 
 /* pokemon */
