@@ -5,18 +5,18 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from '../containers/Header';
 import PokemonsList from '../containers/PokemonsList';
 import Details from './Details';
-import { fetchData } from '../actions';
+import { fetchPokemons } from '../actions';
 
-const App = ({ fetchData }) => {
+const App = ({ fetchPokemons }) => {
   const [count, setCount] = useState(100);
 
   const addMorePokemons = () => {
     setCount(count + 50);
-    if (count <= 650) fetchData(count);
+    if (count <= 650) fetchPokemons(count);
     window.scrollTo(0, 0);
   };
 
-  useEffect(() => { if (count === 100) fetchData(50); });
+  useEffect(() => { if (count === 100) fetchPokemons(50); });
 
   return (
     <Router>
@@ -43,11 +43,11 @@ const App = ({ fetchData }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: count => dispatch(fetchData(count)),
+  fetchPokemons: count => dispatch(fetchPokemons(count)),
 });
 
 App.propTypes = {
-  fetchData: PropTypes.func.isRequired,
+  fetchPokemons: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(App);
