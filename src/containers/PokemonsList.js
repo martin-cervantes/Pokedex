@@ -18,6 +18,15 @@ const PokemonsList = ({
     changeFilter(event.target.value);
   };
 
+  if (pokemons.length === 0) {
+    return (
+      <div id="more">
+        <div className="pokeball bounce" />
+        <h1 className="text">Loading . . .</h1>
+      </div>
+    );
+  }
+
   return (
     <div id="more">
       <div id="pokemons">
