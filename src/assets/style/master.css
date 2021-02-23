@@ -75,10 +75,10 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem 0 1rem;
-  position: relative;
   margin-bottom: 2rem;
   max-width: 25rem;
+  padding: 2rem 0 1rem;
+  position: relative;
   width: 100%;
 }
 
@@ -166,8 +166,8 @@ strong {
 .progressbar {
   background-color: black;
   border-radius: 1rem;
-  padding: 3px;
   margin: 0.5rem;
+  padding: 3px;
 }
 
 .progressbar > div {
@@ -180,8 +180,8 @@ strong {
   background-color: white;
   border: solid 1px black;
   border-radius: 1rem;
-  padding: 1rem 3rem;
   margin: 1rem 0;
+  padding: 1rem 3rem;
 }
 
 .underline {
@@ -196,8 +196,8 @@ ul {
 }
 
 li {
-  list-style-type: disc;
   line-height: 1.2rem;
+  list-style-type: disc;
 }
 
 .button {
@@ -215,8 +215,8 @@ button {
 
 button:hover {
   background-color: white;
-  color: #0f62f0;
   border: 1px solid white;
+  color: #0f62f0;
 }
 
 .back {
