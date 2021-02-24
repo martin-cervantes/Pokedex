@@ -7,12 +7,12 @@ const Pokemon = ({ data }) => {
   const {
     id,
     name,
-    sprite,
+    image,
   } = data;
 
   return (
     <div className="pokemon_container">
-      <img className="pokemon_img" src={sprite} alt={name} />
+      <img className="pokemon_img" src={image} alt={name} />
 
       <button type="button" className="pokemon_name" onClick={() => history.push(`/pokemon/${id}`)}>
         {name}
@@ -27,7 +27,7 @@ Pokemon.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    sprite: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
   }).isRequired,
 };
 

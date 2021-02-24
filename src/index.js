@@ -6,6 +6,7 @@ import icon from './assets/img/pokeball.png';
 
 import './assets/style/reset.css';
 import './assets/style/master.css';
+import './assets/style/loading.css';
 
 import App from './components/App';
 
