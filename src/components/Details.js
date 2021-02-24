@@ -1,92 +1,123 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { fetchPokemonInfo } from '../actions';
 
-const Details = ({ match, pokemons, history }) => {
-  const { pathname } = useLocation();
+class Details extends React.Component {
+  constructor(props) {
+    super(props);
 
-  useEffect(() => {
+    const { fetchPokemonInfo, match, history } = this.props;
+    const { id } = match.params;
+    this.id = id;
+    this.history = history;
+    fetchPokemonInfo(id);
     window.scrollTo(0, 0);
-  }, [pathname]);
 
-  const { id } = match.params;
-  const pokemon = pokemons.find(p => p.id === parseInt(id, 10));
+    this.state = {
+      weight: 0,
+      height: 0,
+      stats: [],
+      abilities: [],
+      moves: [],
+    };
+  }
 
-  const {
-    name,
-    types,
-    weight,
-    height,
-    stats,
-    abilities,
-    moves,
-    sprite,
-  } = pokemon;
+  componentDidUpdate() {
+    const url = 'https://pokemons-api-project.herokuapp.com/pokemon_info/';
 
-  return (
-    <div className="pokemon_details">
-      <div className="section1">
-        <div className="pokemon_container">
-          <img className="pokemon_img" src={sprite} alt={name} />
+    fetch(`${url}${this.id}`)
+      .then(response => response.json())
+      .then(data => this.setState(data));
+  }
 
-          <p className="pokemon_name">{name}</p>
+  render() {
+    const { pokemons } = this.props;
+    const pokemon = pokemons.find(p => p.id === parseInt(this.id, 10));
 
-          <div className="pokemon_num">{id}</div>
-        </div>
+    const {
+      name,
+      types,
+      image,
+    } = pokemon;
 
-        <div className="pokemon_stats">
-          <div className="group">
-            <p><strong>Type:</strong></p>
-            <p><strong>Weight:</strong></p>
-            <p><strong>Height:</strong></p>
-            <p className="label"><strong>HP:</strong></p>
-            <p className="label"><strong>Attack:</strong></p>
-            <p className="label"><strong>Defense:</strong></p>
-            <p className="label"><strong>Special-attack:</strong></p>
-            <p className="label"><strong>Special-defense:</strong></p>
-            <p className="label"><strong>Speed:</strong></p>
+    const {
+      weight,
+      height,
+      stats,
+      abilities,
+      moves,
+    } = this.state;
+
+    return (
+      <div className="pokemon_details">
+        <div className="section1">
+          <div className="pokemon_container">
+            <img className="pokemon_img" src={image} alt={name} />
+
+            <p className="pokemon_name">{name}</p>
+
+            <div className="pokemon_num">{this.id}</div>
           </div>
 
-          <div className="group">
-            <div className="left type">
-              { types.map(t => <div key={uuidv4()} className={`${t} capsule`}>{t}</div>) }
+          <div className="pokemon_stats">
+            <div className="group">
+              <p><strong>Type:</strong></p>
+              <p><strong>Weight:</strong></p>
+              <p><strong>Height:</strong></p>
+              <p className="label"><strong>HP:</strong></p>
+              <p className="label"><strong>Attack:</strong></p>
+              <p className="label"><strong>Defense:</strong></p>
+              <p className="label"><strong>Special-attack:</strong></p>
+              <p className="label"><strong>Special-defense:</strong></p>
+              <p className="label"><strong>Speed:</strong></p>
             </div>
-            <p className="left">{weight}</p>
-            <p className="left">{height}</p>
-            { stats.map(s => <div key={uuidv4()} className="progressbar"><div style={{ width: s.base }} /></div>) }
+
+            <div className="group">
+              <div className="left type">
+                { types.map(t => <div key={uuidv4()} className={`${t} capsule`}>{t}</div>) }
+              </div>
+              <p className="left">{weight}</p>
+              <p className="left">{height}</p>
+              { stats.map(s => <div key={uuidv4()} className="progressbar"><div style={{ width: `${s}px` }} /></div>) }
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="section2">
-        <strong className="underline">Abilities:</strong>
-        <ul>
-          { abilities.map(a => <li key={uuidv4()}>{a}</li>) }
-        </ul>
-      </div>
+        <div className="section2">
+          <strong className="underline">Abilities:</strong>
+          <ul>
+            { abilities.map(a => <li key={uuidv4()}>{a}</li>) }
+          </ul>
+        </div>
 
-      <div className="section2">
-        <strong className="underline">Moves:</strong>
-        <ul>
-          { moves.map(m => <li key={uuidv4()}>{m}</li>) }
-        </ul>
-      </div>
+        <div className="section2">
+          <strong className="underline">Moves:</strong>
+          <ul>
+            { moves.map(m => <li key={uuidv4()}>{m}</li>) }
+          </ul>
+        </div>
 
-      <button type="button" className="back" onClick={history.goBack}>Back</button>
-    </div>
-  );
-};
+        <button type="button" className="back" onClick={this.history.goBack}>Back</button>
+      </div>
+    );
+  }
+}
 
 Details.propTypes = {
   match: PropTypes.objectOf(PropTypes.any).isRequired,
   pokemons: PropTypes.arrayOf(PropTypes.object).isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
+  fetchPokemonInfo: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   pokemons: state.pokemons,
 });
 
-export default connect(mapStateToProps, null)(Details);
+const mapDispatchToProps = dispatch => ({
+  fetchPokemonInfo: id => dispatch(fetchPokemonInfo(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

@@ -1,20 +1,22 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from '../containers/Header';
 import PokemonsList from '../containers/PokemonsList';
 import Details from './Details';
-import { fetchData } from '../actions';
+import { fetchPokemons } from '../actions';
 
-const url = 'https://pokeapi.co/api/v2/pokemon/';
+const App = ({ fetchPokemons }) => {
+  const [count, setCount] = useState(100);
 
-const App = props => {
-  useEffect(() => {
-    for (let num = 1; num <= 151; num += 1) {
-      props.fetchData(`${url}${num}`);
-    }
-  });
+  const addMorePokemons = () => {
+    setCount(count + 50);
+    if (count <= 650) fetchPokemons(count);
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => { if (count === 100) fetchPokemons(50); });
 
   return (
     <Router>
@@ -22,7 +24,7 @@ const App = props => {
         <Header />
 
         <Switch>
-          <Route path="/" exact component={PokemonsList} />
+          <Route path="/" exact component={() => <PokemonsList count={count} addMorePokemons={addMorePokemons} />} />
           <Route path="/pokemon/:id" component={Details} />
         </Switch>
 
@@ -41,11 +43,11 @@ const App = props => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: url => dispatch(fetchData(url)),
+  fetchPokemons: count => dispatch(fetchPokemons(count)),
 });
 
 App.propTypes = {
-  fetchData: PropTypes.func.isRequired,
+  fetchPokemons: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(App);
