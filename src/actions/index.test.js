@@ -1,15 +1,15 @@
 import {
-  ADD_POKEMON, CHANGE_FILTER, addPokemon, changeFilter,
+  ADD_POKEMONS, CHANGE_FILTER, addPokemons, changeFilter,
 } from './index';
 
 describe('Testing actions', () => {
   it('Should create an action to add a pokemon', () => {
-    const pokemon = 'Bulbasaur';
+    const pokemons = 'Bulbasaur';
     const expectedAction = {
-      type: ADD_POKEMON,
-      pokemon,
+      type: ADD_POKEMONS,
+      pokemons,
     };
-    expect(addPokemon(pokemon)).toEqual(expectedAction);
+    expect(addPokemons(pokemons)).toEqual(expectedAction);
   });
 
   it('Should create an action to filter a pokemon', () => {
