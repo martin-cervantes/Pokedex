@@ -353,3 +353,25 @@ footer {
     padding: 2rem 3% 0;
   }
 }
+
+@media (max-width: 620px) {
+  header,
+  #more,
+  footer {
+    width: 95%;
+  }
+
+  #pokemons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 400px) {
+  header,
+  #more,
+  footer {
+    width: 93%;
+  }
+}
